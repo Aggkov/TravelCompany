@@ -22,15 +22,15 @@ public class DataBase {
 
     private DataBase() {
 
-        Passenger passenger1 = new Passenger(1L, "Maria Iordanou", "miordanou@mail.com", "Athens", Nationality.GREEK, Category.INDIVIDUAL);
-        Passenger passenger2 = new Passenger(2L, "Dimitriou Dimitrios", "ddimitriou@mail.com", "Athens", Nationality.GREEK, Category.INDIVIDUAL);
-        Passenger passenger3 = new Passenger(3L, "Ioannis Ioannou", "iiouanou@mail.com", "Athens", Nationality.GREEK, Category.BUSINESS);
-        Passenger passenger4 = new Passenger(4L, "Antonio Molinari", "amolinari@mail.com", "Milan", Nationality.ITALIAN, Category.INDIVIDUAL);
-        Passenger passenger5 = new Passenger(5L, "Frederico Rossi", "frossi@mail.com", "Milan", Nationality.ITALIAN, Category.INDIVIDUAL);
-        Passenger passenger6 = new Passenger(6L, "Mario Conti ", "mconti@mail.com", "Rome", Nationality.ITALIAN, Category.BUSINESS);
-        Passenger passenger7 = new Passenger(7L, "Nathan Martin", "nmartin@mail.com", "Lyon", Nationality.FRENCH, Category.BUSINESS);
-        Passenger passenger8 = new Passenger(8L, "Enzo Collin", "ecollim@mail.com", "Lyon", Nationality.FRENCH, Category.INDIVIDUAL);
-        Passenger passenger9 = new Passenger(9L, "Frederic Michel", "fmichel@mail.com", "Athens", Nationality.FRENCH, Category.INDIVIDUAL);
+        Passenger passenger1 = new Passenger(1L, "Maria Iordanou", "miordanou@mail.com", "Athens", Nationality.GREEK, Category.INDIVIDUAL, Authority.USER);
+        Passenger passenger2 = new Passenger(2L, "Dimitriou Dimitrios", "ddimitriou@mail.com", "Athens", Nationality.GREEK, Category.INDIVIDUAL, Authority.USER);
+        Passenger passenger3 = new Passenger(3L, "Ioannis Ioannou", "iiouanou@mail.com", "Athens", Nationality.GREEK, Category.BUSINESS, Authority.USER);
+        Passenger passenger4 = new Passenger(4L, "Antonio Molinari", "amolinari@mail.com", "Milan", Nationality.ITALIAN, Category.INDIVIDUAL, Authority.USER);
+        Passenger passenger5 = new Passenger(5L, "Frederico Rossi", "frossi@mail.com", "Milan", Nationality.ITALIAN, Category.INDIVIDUAL, Authority.USER);
+        Passenger passenger6 = new Passenger(6L, "Mario Conti ", "mconti@mail.com", "Rome", Nationality.ITALIAN, Category.BUSINESS, Authority.USER);
+        Passenger passenger7 = new Passenger(7L, "Nathan Martin", "nmartin@mail.com", "Lyon", Nationality.FRENCH, Category.BUSINESS, Authority.USER);
+        Passenger passenger8 = new Passenger(8L, "Enzo Collin", "ecollim@mail.com", "Lyon", Nationality.FRENCH, Category.INDIVIDUAL, Authority.USER);
+        Passenger passenger9 = new Passenger(9L, "Frederic Michel", "fmichel@mail.com", "Athens", Nationality.FRENCH, Category.INDIVIDUAL, Authority.USER);
         Collections.addAll(this.passengers, passenger1, passenger2, passenger3, passenger4, passenger5, passenger6, passenger7, passenger8, passenger9);
 
         Itinerary itinerary1 = new Itinerary(1L, DepartureAirportCode.ATH, DestinationAirportCode.PAR, LocalDateTime.of(2022,02,22, 13, 35), Airline.SKYLINE, new BigDecimal("300"));
