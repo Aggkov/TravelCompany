@@ -1,6 +1,6 @@
 package com.travelcompany.eshop.model;
 
-
+import com.travelcompany.eshop.model.enums.Authority;
 import com.travelcompany.eshop.model.enums.Category;
 import com.travelcompany.eshop.model.enums.Nationality;
 
@@ -16,15 +16,18 @@ public class Passenger extends BaseEntity {
 
     private Category category;
 
-    public Passenger(Long id,String fullName, String email,
-                     String address, Nationality nationality,
-                     Category category) {
+    private Authority authority;
+
+    public Passenger(Long id, String fullName, String email,
+            String address, Nationality nationality,
+            Category category, Authority authority) {
         super(id);
         this.fullName = fullName;
         this.email = email;
         this.address = address;
         this.nationality = nationality;
         this.category = category;
+        this.authority = authority;
     }
 
     public String getFullName() {
@@ -65,6 +68,14 @@ public class Passenger extends BaseEntity {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Authority getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
     }
 
     @Override
