@@ -1,0 +1,25 @@
+
+package com.travelcompany.eshop.service.impl;
+
+import com.travelcompany.eshop.model.Order;
+import com.travelcompany.eshop.repository.OrderRepository;
+import com.travelcompany.eshop.repository.impl.OrderRepositoryImpl;
+import com.travelcompany.eshop.service.OrderService;
+import java.util.List;
+
+
+public class OrderServiceImpl implements OrderService {
+    
+    OrderRepository orderRepository = new OrderRepositoryImpl();
+    
+    @Override
+    public Order findById(Long id) {
+        return orderRepository.findById(id);
+    }
+    
+    public List<Order> getAll() {
+        
+        return orderRepository.getAll();
+    }
+    
+}

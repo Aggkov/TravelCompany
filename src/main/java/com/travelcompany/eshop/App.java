@@ -1,19 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.travelcompany.eshop;
 
 import com.travelcompany.eshop.boot.Application;
+import com.travelcompany.eshop.model.Passenger;
+import com.travelcompany.eshop.model.enums.Authority;
+import com.travelcompany.eshop.model.enums.Category;
+import com.travelcompany.eshop.model.enums.Nationality;
+import com.travelcompany.eshop.view.UserMenu;
 
-/**
- *
- * @author Aggelos
- */
+
 public class App {
 
     public static void main(String[] args) {
-        Application.run();
+//        Application.run();
+        Passenger passenger11 = new Passenger(1L, "Maria Iordanou", "miordanou@mail.com", "Athens", Nationality.GREEK, Category.INDIVIDUAL, Authority.USER);
+
+        UserMenu.getInstance().showUserMenu(passenger11);
 
     }
 }

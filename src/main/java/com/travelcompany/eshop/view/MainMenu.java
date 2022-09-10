@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class MainMenu {
 
     private static MainMenu instance;
-    Scanner sc = new Scanner(System.in);
-    UserService userService = new UserServiceImpl();
+    private Scanner sc = new Scanner(System.in);
+    private UserService userService = new UserServiceImpl();
 
     private MainMenu() {
     }
@@ -33,7 +33,7 @@ public class MainMenu {
                 inputEmail = InputValidator.ValidateEmail();
                 Passenger foundPassenger = userService.findByEmail(inputEmail);
                 if (foundPassenger.getAuthority().name().equals("USER")) {
-                    UserMenu.getInstance().showUserMenu();
+                    UserMenu.getInstance().showUserMenu(foundPassenger);
                 }
                 break;
             } catch (InvalidEmailException ex) {

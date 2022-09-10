@@ -20,9 +20,9 @@ public class Itinerary extends BaseEntity {
 
     private BigDecimal basicPrice;
 
-    public Itinerary(Long id, DepartureAirportCode departureAirportCode,DestinationAirportCode destinationAirportCode,
-                     LocalDateTime departureDate, Airline airline,
-                     BigDecimal basicPrice) {
+    public Itinerary(Long id, DepartureAirportCode departureAirportCode, DestinationAirportCode destinationAirportCode,
+            LocalDateTime departureDate, Airline airline,
+            BigDecimal basicPrice) {
         super(id);
         this.departureAirportCode = departureAirportCode;
         this.destinationAirportCode = destinationAirportCode;
@@ -65,8 +65,12 @@ public class Itinerary extends BaseEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Itinerary itinerary = (Itinerary) o;
         return departureAirportCode == itinerary.departureAirportCode && Objects.equals(departureDate, itinerary.departureDate) && airline == itinerary.airline && Objects.equals(basicPrice, itinerary.basicPrice);
     }
@@ -79,6 +83,7 @@ public class Itinerary extends BaseEntity {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Itinerary{");
+        sb.append("Id= ").append(getId());
         sb.append(", departureAirportCode=").append(departureAirportCode);
         sb.append(", departureDate=").append(departureDate);
         sb.append(", airline=").append(airline);

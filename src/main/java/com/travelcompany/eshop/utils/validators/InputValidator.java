@@ -1,10 +1,10 @@
-
 package com.travelcompany.eshop.utils.validators;
 
 import com.travelcompany.eshop.exception.InvalidEmailException;
+import com.travelcompany.eshop.model.Itinerary;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
-
 
 public class InputValidator {
 
@@ -18,10 +18,60 @@ public class InputValidator {
         if (Pattern.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}"
                 + "~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\."
                 + "[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)"
-                + "+[a-zA-Z]{2,}))$", email)) {
-            return email;
+                + "+[a-zA-Z]{2,}))$", email.trim())) {
+            return email.trim();
         } else {
             throw new InvalidEmailException("Email is not valid");
         }
+    }
+//amolinari@mail.com
+
+    public static int validateIntegerInput(String question) throws NumberFormatException {
+
+        System.out.print(question);
+        int num = 0;
+        if (sc.hasNextInt()) {
+            return num;
+        } else {
+            sc.next();
+            throw new NumberFormatException("Only integers allowed please!");
+        }
+    }
+
+    public static int validateIntegerInput(String question, int[] availableChoices) throws NumberFormatException {
+
+        System.out.print(question);
+
+        if (!sc.hasNextInt()) {
+            sc.next();
+            throw new NumberFormatException("Only integers allowed please!");
+
+        } else {
+            int num = sc.nextInt();
+            for (int i : availableChoices) {
+                if (num == i) {
+                    return num;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public static int[] getOptionsNumbers(List<Itinerary> options) {
+
+        int[] optionsToInt = new int[options.size()];
+        for (int i = 0; i < optionsToInt.length; i++) {
+            optionsToInt[i] = i + 1;
+        }
+        return optionsToInt;
+    }
+
+    public static String getOptionsNames(List<Itinerary> options) {
+        String tmp = " ";
+
+        for (int i = 0; i < options.size(); i++) {
+            tmp += " [" + (i + 1) + "] " + options.get(i) + "\n";
+        }
+        return tmp;
     }
 }
