@@ -14,6 +14,8 @@ import com.travelcompany.eshop.service.impl.OrderServiceImpl;
 import com.travelcompany.eshop.utils.validators.InputValidator;
 
 import java.math.BigDecimal;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 // Singleton
@@ -42,7 +44,7 @@ public class UserMenu {
             try {
                 int orderId = InputValidator.validateIntegerInput("Please make your choice: " + "\n" + InputValidator.getOptionsNames(itineraries),
                         InputValidator.getOptionsNumbers(itineraries));
-                Itinerary itinerary = (itineraryService.findById((long) orderId));
+                Itinerary foundItinerary = (itineraryService.findById((long) orderId));
 
                 while(!flag2) {
                     paymentMethodInput = InputValidator.validateString();
@@ -51,9 +53,10 @@ public class UserMenu {
 
                 PaymentMethod paymentMethod = PaymentMethod.valueOf(paymentMethodInput.toUpperCase());
 
-                CheckOutMenu.getInstance().showCheckOutMenu(passenger, itinerary, paymentMethod);
+                CheckOutMenu.getInstance().showCheckOutMenu(passenger, foundItinerary, paymentMethod);
 
                 flag1 = true;
+
             } catch (NumberFormatException | ResourceNotFoundException | BadRequestException ex) {
                 System.out.println(ex.getMessage());
             }

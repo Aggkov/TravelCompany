@@ -35,6 +35,9 @@ public class MainMenu {
                 if (foundPassenger.getAuthority().name().equals("USER")) {
                     UserMenu.getInstance().showUserMenu(foundPassenger);
                 }
+                else {
+                    AdminMenu.getInstance().showAdminMenu(foundPassenger);
+                }
                 break;
             } catch (InvalidEmailException ex) {
                 System.out.println(ex.getMessage());

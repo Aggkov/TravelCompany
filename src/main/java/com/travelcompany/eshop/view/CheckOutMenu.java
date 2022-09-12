@@ -31,26 +31,23 @@ public class CheckOutMenu {
         System.out.println("checkout menu");
 
         List<Order> orders = orderService.getAll();
+
         // for auto increment
         int size = orders.size();
 
         BigDecimal totalCost;
         if(passenger.getCategory().equals(Category.INDIVIDUAL)) {
-//            x 1.10
             if(paymentMethod.equals(PaymentMethod.CREDIT)) {
                 totalCost = itinerary.getBasicPrice().multiply(new BigDecimal("1.10"));
                 System.out.println("indivi, credit= " + totalCost);
-//           x1.20 cash
             } else {
                 totalCost = itinerary.getBasicPrice().multiply(new BigDecimal("1.10"));
                 System.out.println("indivi, cash= " + totalCost);
             }
-            // -20 % disc (business, credit)
         } else {
             if(paymentMethod.equals(PaymentMethod.CREDIT)) {
                 totalCost = itinerary.getBasicPrice().multiply(new BigDecimal("0.80"));
             }
-            // -10%
             else {
                 totalCost = itinerary.getBasicPrice().multiply(new BigDecimal("0.90"));
             }

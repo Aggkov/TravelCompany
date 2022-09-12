@@ -38,17 +38,20 @@ public class InputValidator {
         }
     }
 //amolinari@mail.com
-
-    public static int validateIntegerInput(String question) throws NumberFormatException {
-
+    public static int validateIntegerInput(String question) {
         System.out.print(question);
-        int num = 0;
-        if (sc.hasNextInt()) {
-            return num;
-        } else {
-            sc.next();
-            throw new NumberFormatException("Only integers allowed please!");
+        int resultNum;
+        while (true) {
+            try {
+                String input = sc.next();
+                int number = Integer.parseInt(input);
+                resultNum = number;
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Only integers allowed please!");
+            }
         }
+        return resultNum;
     }
 
     public static int validateIntegerInput(String question, int[] availableChoices) throws NumberFormatException {
