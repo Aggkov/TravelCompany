@@ -15,5 +15,9 @@ public class ItineraryServiceImpl implements ItineraryService {
         
         return itineraryRepository.getAllItineraries();
     }
+
+    public Itinerary findById(Long id) {
+        return itineraryRepository.findById(id);
+    }
     
 }

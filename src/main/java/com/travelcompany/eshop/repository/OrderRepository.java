@@ -9,4 +9,6 @@ public interface OrderRepository {
      
      List<Order> getAll();
 
+     Order addOrder(Order order);
+
 }

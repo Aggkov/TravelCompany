@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ItineraryService {
     
-    List<Itinerary> getAllItineraries(); 
+    List<Itinerary> getAllItineraries();
+
+    Itinerary findById(Long id);
     
 }

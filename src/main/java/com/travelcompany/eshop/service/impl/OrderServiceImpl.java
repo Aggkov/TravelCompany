@@ -21,5 +21,11 @@ public class OrderServiceImpl implements OrderService {
         
         return orderRepository.getAll();
     }
+
+    public Order addOrder(Order order) {
+
+        return orderRepository.addOrder(order);
+    }
+
     
 }

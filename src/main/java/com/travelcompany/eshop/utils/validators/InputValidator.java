@@ -1,7 +1,9 @@
 package com.travelcompany.eshop.utils.validators;
 
+import com.travelcompany.eshop.exception.BadRequestException;
 import com.travelcompany.eshop.exception.InvalidEmailException;
 import com.travelcompany.eshop.model.Itinerary;
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -22,6 +24,17 @@ public class InputValidator {
             return email.trim();
         } else {
             throw new InvalidEmailException("Email is not valid");
+        }
+    }
+
+    public static String validateString() throws BadRequestException {
+
+        System.out.print("Which is your desired payment method? (CASH,CREDIT): ");
+        String input = sc.next();
+        if (input.equalsIgnoreCase("CASH") || input.equalsIgnoreCase("CREDIT")) {
+            return input;
+        } else {
+            throw new BadRequestException("Only CASH or CREDIT are supported ,please provide the correct input");
         }
     }
 //amolinari@mail.com

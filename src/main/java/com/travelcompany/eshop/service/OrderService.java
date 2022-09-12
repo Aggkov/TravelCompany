@@ -9,4 +9,6 @@ public interface OrderService {
     Order findById(Long id);
     
     List<Order> getAll();
+
+    Order addOrder(Order order);
 }
