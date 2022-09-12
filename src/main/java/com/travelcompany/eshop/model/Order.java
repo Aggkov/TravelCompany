@@ -71,12 +71,12 @@ public class Order extends BaseEntity {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Order{");
-        sb.append("Id= ").append(getId());
-        sb.append("passenger=").append(passenger);
-        sb.append(", itinerary=").append(itinerary);
-        sb.append(", paymentMethod=").append(paymentMethod);
-        sb.append(", paymentAmount=").append(paymentAmount);
+        final StringBuilder sb = new StringBuilder("Order {");
+        sb.append("Id= ").append(getId() + "\n");
+        sb.append("passenger=").append(passenger + "\n") ;
+        sb.append(", itinerary=").append(itinerary + "\n");
+        sb.append("paymentMethod=").append(paymentMethod + "\n");
+        sb.append("paymentAmount=").append(paymentAmount + "\n");
         sb.append('}' + "\n");
         return sb.toString();
     }

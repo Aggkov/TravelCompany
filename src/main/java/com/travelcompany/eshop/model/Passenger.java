@@ -4,6 +4,9 @@ import com.travelcompany.eshop.model.enums.Authority;
 import com.travelcompany.eshop.model.enums.Category;
 import com.travelcompany.eshop.model.enums.Nationality;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Passenger extends BaseEntity {
 
     private String fullName;
@@ -18,6 +21,8 @@ public class Passenger extends BaseEntity {
 
     private Authority authority;
 
+    private List<Itinerary> itineraries;
+
     public Passenger(Long id, String fullName, String email,
             String address, Nationality nationality,
             Category category, Authority authority) {
@@ -28,6 +33,7 @@ public class Passenger extends BaseEntity {
         this.nationality = nationality;
         this.category = category;
         this.authority = authority;
+        itineraries = new ArrayList<>();
     }
 
     public String getFullName() {
@@ -78,10 +84,14 @@ public class Passenger extends BaseEntity {
         this.authority = authority;
     }
 
+    public List<Itinerary> getItineraries() {
+        return itineraries;
+    }
+
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Passenger{");
-        sb.append(", fullName='").append(fullName).append('\'');
+        final StringBuilder sb = new StringBuilder();
+        sb.append("fullName='").append(fullName).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", address='").append(address).append('\'');
         sb.append(", nationality=").append(nationality);

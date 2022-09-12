@@ -6,6 +6,8 @@ import com.travelcompany.eshop.model.enums.DestinationAirportCode;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Itinerary extends BaseEntity {
@@ -20,6 +22,8 @@ public class Itinerary extends BaseEntity {
 
     private BigDecimal basicPrice;
 
+    private List<Passenger> passengers;
+
     public Itinerary(Long id, DepartureAirportCode departureAirportCode, DestinationAirportCode destinationAirportCode,
             LocalDateTime departureDate, Airline airline,
             BigDecimal basicPrice) {
@@ -29,6 +33,7 @@ public class Itinerary extends BaseEntity {
         this.departureDate = departureDate;
         this.airline = airline;
         this.basicPrice = basicPrice;
+        passengers = new ArrayList<>();
     }
 
     public DepartureAirportCode getDepartureAirportCode() {
