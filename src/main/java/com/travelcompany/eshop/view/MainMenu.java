@@ -3,8 +3,8 @@ package com.travelcompany.eshop.view;
 import com.travelcompany.eshop.exception.InvalidEmailException;
 import com.travelcompany.eshop.exception.ResourceNotFoundException;
 import com.travelcompany.eshop.model.Passenger;
-import com.travelcompany.eshop.service.UserService;
-import com.travelcompany.eshop.service.impl.UserServiceImpl;
+import com.travelcompany.eshop.service.PassengerService;
+import com.travelcompany.eshop.service.impl.PassengerServiceImpl;
 import com.travelcompany.eshop.utils.validators.InputValidator;
 
 import java.util.Scanner;
@@ -13,7 +13,7 @@ public class MainMenu {
 
     private static MainMenu instance;
     private Scanner sc = new Scanner(System.in);
-    private UserService userService = new UserServiceImpl();
+    private PassengerService passengerService = new PassengerServiceImpl();
 
     private MainMenu() {
     }
@@ -31,12 +31,12 @@ public class MainMenu {
         while (true) {
             try {
                 inputEmail = InputValidator.ValidateEmail();
-                Passenger foundPassenger = userService.findByEmail(inputEmail);
+                Passenger foundPassenger = passengerService.findByEmail(inputEmail);
                 if (foundPassenger.getAuthority().name().equals("USER")) {
                     UserMenu.getInstance().showUserMenu(foundPassenger);
                 }
                 else {
-                    AdminMenu.getInstance().showAdminMenu(foundPassenger);
+                    AdminMenu.getInstance().showAdminMenu();
                 }
                 break;
             } catch (InvalidEmailException ex) {

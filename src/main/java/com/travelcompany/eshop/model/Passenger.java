@@ -5,7 +5,9 @@ import com.travelcompany.eshop.model.enums.Category;
 import com.travelcompany.eshop.model.enums.Nationality;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Passenger extends BaseEntity {
 
@@ -23,6 +25,8 @@ public class Passenger extends BaseEntity {
 
     private List<Itinerary> itineraries;
 
+    private Set<Order> orders;
+
     public Passenger(Long id, String fullName, String email,
             String address, Nationality nationality,
             Category category, Authority authority) {
@@ -33,7 +37,30 @@ public class Passenger extends BaseEntity {
         this.nationality = nationality;
         this.category = category;
         this.authority = authority;
-        itineraries = new ArrayList<>();
+        this.itineraries = new ArrayList<>();
+        this.orders = new LinkedHashSet<>();
+    }
+
+    public boolean addItinerary(Itinerary itinerary) {
+        if(!itineraries.contains(itinerary)) {
+            itineraries.add(itinerary);
+            itinerary.getPassengers().add(this);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addOrder(Order order) {
+        if(!orders.contains(order)) {
+            orders.add(order);
+//            itinerary.getPassengers().add(this);
+            return true;
+        }
+        return false;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
     }
 
     public String getFullName() {
@@ -96,6 +123,7 @@ public class Passenger extends BaseEntity {
         sb.append(", address='").append(address).append('\'');
         sb.append(", nationality=").append(nationality);
         sb.append(", category=").append(category);
+        sb.append("itineraries= ").append(itineraries);
         sb.append('}');
         return sb.toString();
     }

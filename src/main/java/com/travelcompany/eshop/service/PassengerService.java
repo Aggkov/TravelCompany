@@ -4,7 +4,7 @@ package com.travelcompany.eshop.service;
 import com.travelcompany.eshop.model.Passenger;
 
 
-public interface UserService {
+public interface PassengerService {
     
     Passenger findByEmail(String email);
 }

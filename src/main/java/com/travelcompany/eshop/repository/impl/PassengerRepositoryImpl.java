@@ -7,19 +7,20 @@ package com.travelcompany.eshop.repository.impl;
 import com.travelcompany.eshop.DataBase.DataBase;
 import com.travelcompany.eshop.exception.ResourceNotFoundException;
 import com.travelcompany.eshop.model.Passenger;
-import com.travelcompany.eshop.repository.UserRepository;
-import java.util.List;
+import com.travelcompany.eshop.repository.PassengerRepository;
+
+import java.util.Set;
 
 /**
  *
  * @author Aggelos
  */
-public class UserRepositoryImpl implements UserRepository {
+public class PassengerRepositoryImpl implements PassengerRepository {
 
     DataBase databaseInstance = DataBase.getInstance();
-    List<Passenger> passengers = databaseInstance.getPassengers();
+    Set<Passenger> passengers = databaseInstance.getPassengers();
 
-    public UserRepositoryImpl() {}
+//    public PassengerRepositoryImpl() {}
 
     public Passenger findByEmail(String email) {
         return passengers.stream()

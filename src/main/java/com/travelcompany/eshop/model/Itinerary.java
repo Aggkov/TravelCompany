@@ -35,6 +35,14 @@ public class Itinerary extends BaseEntity {
         this.basicPrice = basicPrice;
         passengers = new ArrayList<>();
     }
+    public boolean addPassenger(Passenger passenger) {
+        if(!passengers.contains(passenger)) {
+            passengers.add(passenger);
+            passenger.getItineraries().add(this);
+            return true;
+        }
+        return false;
+    }
 
     public DepartureAirportCode getDepartureAirportCode() {
         return departureAirportCode;
@@ -66,6 +74,14 @@ public class Itinerary extends BaseEntity {
 
     public void setBasicPrice(BigDecimal basicPrice) {
         this.basicPrice = basicPrice;
+    }
+
+    public DestinationAirportCode getDestinationAirportCode() {
+        return destinationAirportCode;
+    }
+
+    public List<Passenger> getPassengers() {
+        return passengers;
     }
 
     @Override
