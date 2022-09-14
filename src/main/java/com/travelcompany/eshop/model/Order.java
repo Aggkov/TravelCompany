@@ -32,7 +32,7 @@ public class Order extends BaseEntity {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Order {");
-        sb.append("Id= ").append(getId() + "\n");
+        sb.append("orderId= ").append(getId() + "\n");
         sb.append("passenger=").append(passenger + "\n") ;
         sb.append(", itinerary=").append(itinerary + "\n");
         sb.append("paymentMethod=").append(paymentMethod + "\n");

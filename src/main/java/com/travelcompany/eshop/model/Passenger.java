@@ -68,6 +68,7 @@ public class Passenger extends BaseEntity {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
+        sb.append("Customer ").append(super.getId()).append('\'');
         sb.append("fullName='").append(fullName).append('\'');
         sb.append(", email='").append(email).append('\'');
         sb.append(", address='").append(address).append('\'');
