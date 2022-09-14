@@ -7,7 +7,7 @@ import com.travelcompany.eshop.model.Order;
 import com.travelcompany.eshop.model.Passenger;
 import com.travelcompany.eshop.model.enums.DepartureAirportCode;
 import com.travelcompany.eshop.model.enums.DestinationAirportCode;
-import com.travelcompany.eshop.payload.PassengerDetails;
+import com.travelcompany.eshop.payload.PassengerDetailsResponse;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -27,12 +27,12 @@ public class ReportService {
         List passengerList =
                 passengers.stream()
                         .map(p -> {
-                            Integer count = p.getItineraries().size();
-                            BigDecimal totalPaid2 = p.getOrders().parallelStream()
+                            Integer ticketCount = p.getItineraries().size();
+                            BigDecimal totalPaid = p.getOrders().parallelStream()
                                     .map(Order::getPaymentAmount)
                                     .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-                            return new KeyValue(p, new PassengerDetails(count, totalPaid2));
+                            return new KeyValue(p, new PassengerDetailsResponse(ticketCount, totalPaid));
                         }).collect(Collectors.toList());
 
         for (Object obj : passengerList) {

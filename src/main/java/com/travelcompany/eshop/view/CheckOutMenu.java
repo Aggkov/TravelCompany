@@ -28,7 +28,7 @@ public class CheckOutMenu {
 
     public void showCheckOutMenu(Passenger passenger, Itinerary itinerary, PaymentMethod paymentMethod) {
 
-        System.out.println("checkout menu");
+        System.out.println("------CHECKOUT MENU-------");
 
         List<Order> orders = orderService.getAll();
 
@@ -39,10 +39,8 @@ public class CheckOutMenu {
         if(passenger.getCategory().equals(Category.INDIVIDUAL)) {
             if(paymentMethod.equals(PaymentMethod.CREDIT)) {
                 totalCost = itinerary.getBasicPrice().multiply(new BigDecimal("1.10"));
-                System.out.println("indivi, credit= " + totalCost);
             } else {
                 totalCost = itinerary.getBasicPrice().multiply(new BigDecimal("1.10"));
-                System.out.println("indivi, cash= " + totalCost);
             }
         } else {
             if(paymentMethod.equals(PaymentMethod.CREDIT)) {
@@ -53,8 +51,10 @@ public class CheckOutMenu {
             }
         }
 
-        Order order = orderService.addOrder(new Order(Long.valueOf(++size) ,passenger, itinerary, paymentMethod, totalCost));
-        System.out.println(order);
+        orderService.addOrder(new Order(Long.valueOf(++size) ,passenger, itinerary, paymentMethod, totalCost));
+
+        System.out.println("You have selected the following itinerary " + itinerary + " with payment method of " + paymentMethod
+        + " and the payment amount is " + totalCost);
 
     }
 }

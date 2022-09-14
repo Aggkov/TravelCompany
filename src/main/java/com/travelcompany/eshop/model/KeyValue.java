@@ -1,6 +1,9 @@
 package com.travelcompany.eshop.model;
 
 
+import lombok.Data;
+
+@Data
 public class KeyValue<K, V> {
     private final K key;
     private final V value;
@@ -10,7 +13,6 @@ public class KeyValue<K, V> {
         this.key = key;
         this.value = value;
     }
-
 
 
     @Override

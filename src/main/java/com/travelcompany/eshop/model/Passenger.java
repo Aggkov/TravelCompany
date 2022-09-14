@@ -3,12 +3,17 @@ package com.travelcompany.eshop.model;
 import com.travelcompany.eshop.model.enums.Authority;
 import com.travelcompany.eshop.model.enums.Category;
 import com.travelcompany.eshop.model.enums.Nationality;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+@Data
+@EqualsAndHashCode(callSuper = true, exclude = {"itineraries","orders"})
 public class Passenger extends BaseEntity {
 
     private String fullName;
@@ -59,61 +64,6 @@ public class Passenger extends BaseEntity {
         return false;
     }
 
-    public Set<Order> getOrders() {
-        return orders;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Nationality getNationality() {
-        return nationality;
-    }
-
-    public void setNationality(Nationality nationality) {
-        this.nationality = nationality;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public Authority getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(Authority authority) {
-        this.authority = authority;
-    }
-
-    public List<Itinerary> getItineraries() {
-        return itineraries;
-    }
 
     @Override
     public String toString() {
@@ -123,8 +73,6 @@ public class Passenger extends BaseEntity {
         sb.append(", address='").append(address).append('\'');
         sb.append(", nationality=").append(nationality);
         sb.append(", category=").append(category);
-        sb.append("itineraries= ").append(itineraries);
-        sb.append('}');
         return sb.toString();
     }
 }

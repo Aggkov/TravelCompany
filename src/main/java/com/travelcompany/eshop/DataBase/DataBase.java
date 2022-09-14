@@ -4,11 +4,13 @@ import com.travelcompany.eshop.model.Itinerary;
 import com.travelcompany.eshop.model.Order;
 import com.travelcompany.eshop.model.Passenger;
 import com.travelcompany.eshop.model.enums.*;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 
+@Data
 public class DataBase {
 
     private static DataBase instance;
@@ -74,8 +76,6 @@ public class DataBase {
         passenger5.addItinerary(itinerary7);
         passenger5.addOrder(order7);
 
-
-
     }
 
     public static DataBase getInstance() {
@@ -86,15 +86,4 @@ public class DataBase {
         return instance;
     }
 
-    public Set<Passenger> getPassengers() {
-        return passengers;
-    }
-
-    public List<Itinerary> getItineraries() {
-        return itineraries;
-    }
-
-    public List<Order> getOrders() {
-        return orders;
-    }
 }

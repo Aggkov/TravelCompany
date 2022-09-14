@@ -42,7 +42,7 @@ public class UserMenu {
         String paymentMethodInput = "";
         while (!flag1) {
             try {
-                int orderId = InputValidator.validateIntegerInput("Please make your choice: " + "\n" + InputValidator.getOptionsNames(itineraries),
+                int orderId = InputValidator.validateIntegerInput("Which itinerary would you like? : " + "\n" + InputValidator.getOptionsNames(itineraries),
                         InputValidator.getOptionsNumbers(itineraries));
                 Itinerary foundItinerary = (itineraryService.findById((long) orderId));
 

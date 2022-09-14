@@ -1,27 +1,7 @@
 
 package com.travelcompany.eshop;
 
-import com.travelcompany.eshop.DataBase.DataBase;
 import com.travelcompany.eshop.boot.Application;
-import com.travelcompany.eshop.model.Itinerary;
-import com.travelcompany.eshop.model.KeyValue;
-import com.travelcompany.eshop.model.Order;
-import com.travelcompany.eshop.model.Passenger;
-import com.travelcompany.eshop.model.enums.Authority;
-import com.travelcompany.eshop.model.enums.Category;
-import com.travelcompany.eshop.model.enums.DestinationAirportCode;
-import com.travelcompany.eshop.model.enums.Nationality;
-import com.travelcompany.eshop.payload.PassengerDetails;
-import com.travelcompany.eshop.utils.validators.InputValidator;
-import com.travelcompany.eshop.view.UserMenu;
-
-import java.io.File;
-import java.math.BigDecimal;
-import java.util.*;
-import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.Stream;
 
 
 public class App {
@@ -47,10 +27,8 @@ public class App {
 //        UserMenu.getInstance().showUserMenu(passenger11);
 
 
-//        DataBase instance = DataBase.getInstance();
-//        List<Order> orders = instance.getOrders();
-//        Set<Passenger> passengers = instance.getPassengers();
-//        List<Itinerary> itineraries = instance.getItineraries();
+
+
 
         //  List of the total offered itineraries per destination and offered itineraries per departure
 //        Map<DestinationAirportCode, List<Itinerary>> itinerariesPerDestination1 = itineraries.stream()

@@ -3,6 +3,8 @@ package com.travelcompany.eshop.model;
 import com.travelcompany.eshop.model.enums.Airline;
 import com.travelcompany.eshop.model.enums.DepartureAirportCode;
 import com.travelcompany.eshop.model.enums.DestinationAirportCode;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Data
+@EqualsAndHashCode(callSuper = true)
 public class Itinerary extends BaseEntity {
 
     private DepartureAirportCode departureAirportCode;
@@ -44,62 +48,6 @@ public class Itinerary extends BaseEntity {
         return false;
     }
 
-    public DepartureAirportCode getDepartureAirportCode() {
-        return departureAirportCode;
-    }
-
-    public void setDepartureAirportCode(DepartureAirportCode departureAirportCode) {
-        this.departureAirportCode = departureAirportCode;
-    }
-
-    public LocalDateTime getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(LocalDateTime departureDate) {
-        this.departureDate = departureDate;
-    }
-
-    public Airline getAirline() {
-        return airline;
-    }
-
-    public void setAirline(Airline airline) {
-        this.airline = airline;
-    }
-
-    public BigDecimal getBasicPrice() {
-        return basicPrice;
-    }
-
-    public void setBasicPrice(BigDecimal basicPrice) {
-        this.basicPrice = basicPrice;
-    }
-
-    public DestinationAirportCode getDestinationAirportCode() {
-        return destinationAirportCode;
-    }
-
-    public List<Passenger> getPassengers() {
-        return passengers;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Itinerary itinerary = (Itinerary) o;
-        return departureAirportCode == itinerary.departureAirportCode && Objects.equals(departureDate, itinerary.departureDate) && airline == itinerary.airline && Objects.equals(basicPrice, itinerary.basicPrice);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(departureAirportCode, departureDate, airline, basicPrice);
-    }
 
     @Override
     public String toString() {
