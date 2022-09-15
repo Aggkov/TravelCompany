@@ -6,6 +6,7 @@ import com.travelcompany.eshop.model.Itinerary;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class InputValidator {

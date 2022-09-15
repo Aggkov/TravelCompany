@@ -1,26 +1,41 @@
 
 package com.travelcompany.eshop;
 
-import com.travelcompany.eshop.DataBase.DataBase;
-import com.travelcompany.eshop.boot.Application;
-import com.travelcompany.eshop.model.Order;
 import com.travelcompany.eshop.model.Passenger;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
-
-import java.io.IOException;
-import java.io.Writer;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-
+import com.travelcompany.eshop.repository.PassengerRepository;
+import com.travelcompany.eshop.repository.impl.PassengerRepositoryImpl;
 
 public class App {
 
     public static void main(String[] args) {
 
-        Application.run();
+//        Application.run();
+
+
+
+
+
+
+
+
+
+        // FIND BY EMAIL
+        PassengerRepository passengerRepository = new PassengerRepositoryImpl();
+
+        Passenger foundPassenger = passengerRepository.findByEmail("ada@mail.com");
+        System.out.println(foundPassenger);
+//
+//        // CREATE
+//        System.out.println(DataBase.getInstance().getPassengers());
+//        passengerRepository.create(new Passenger(20L,"John Johnson", "john@mail.com", "address",
+//                Nationality.FRENCH, Category.BUSINESS, Authority.USER));
+//        System.out.println(DataBase.getInstance().getPassengers());
+//
+//        // UPDATE
+//        foundPassenger.setAddress("XXXXX");
+//        passengerRepository.update(foundPassenger);
+//        System.out.println(foundPassenger);
+
 
 
 

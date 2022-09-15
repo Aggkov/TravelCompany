@@ -1,6 +1,6 @@
 package com.travelcompany.eshop.view;
 
-import com.travelcompany.eshop.DataBase.DataBase;
+import com.travelcompany.eshop.database.DataBase;
 import com.travelcompany.eshop.model.Itinerary;
 import com.travelcompany.eshop.model.Order;
 import com.travelcompany.eshop.model.Passenger;

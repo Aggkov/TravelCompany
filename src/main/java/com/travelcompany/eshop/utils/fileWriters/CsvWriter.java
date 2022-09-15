@@ -12,10 +12,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
+import java.util.Set;
 
 public class CsvWriter {
 
-    public static void writeListOrdersToCsv(List<Order> orderList) {
+    public static void writeListOrdersToCsv(Set<Order> orderList) {
         Path path = Paths.get("orders.csv");
 
         try (Writer writer = Files.newBufferedWriter(path);

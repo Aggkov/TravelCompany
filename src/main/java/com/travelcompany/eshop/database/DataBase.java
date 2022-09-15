@@ -1,10 +1,9 @@
-package com.travelcompany.eshop.DataBase;
+package com.travelcompany.eshop.database;
 
 import com.travelcompany.eshop.model.Itinerary;
 import com.travelcompany.eshop.model.Order;
 import com.travelcompany.eshop.model.Passenger;
 import com.travelcompany.eshop.model.enums.*;
-import com.travelcompany.eshop.utils.fileWriters.CsvWriter;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -17,8 +16,8 @@ public class DataBase {
     private static DataBase instance;
 
     private Set<Passenger> passengers = new LinkedHashSet<>();
-    private List<Itinerary> itineraries = new ArrayList<>();
-    private List<Order> orders = new ArrayList<>();
+    private Set<Itinerary> itineraries = new LinkedHashSet<>();
+    private Set<Order> orders = new LinkedHashSet<>();
 
 
     private DataBase() {

@@ -1,13 +1,11 @@
 package com.travelcompany.eshop.report;
 
-import com.travelcompany.eshop.DataBase.DataBase;
+import com.travelcompany.eshop.database.DataBase;
 import com.travelcompany.eshop.model.Itinerary;
-import com.travelcompany.eshop.model.KeyValue;
 import com.travelcompany.eshop.model.Order;
 import com.travelcompany.eshop.model.Passenger;
 import com.travelcompany.eshop.model.enums.DepartureAirportCode;
 import com.travelcompany.eshop.model.enums.DestinationAirportCode;
-import com.travelcompany.eshop.payload.PassengerDetailsResponse;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -20,9 +18,9 @@ import java.util.stream.Collectors;
 public class ReportService {
 
     DataBase instance = DataBase.getInstance();
-    List<Order> orders = instance.getOrders();
+    Set<Order> orders = instance.getOrders();
     Set<Passenger> passengers = instance.getPassengers();
-    List<Itinerary> itineraries = instance.getItineraries();
+    Set<Itinerary> itineraries = instance.getItineraries();
     private final AtomicInteger counter = new AtomicInteger(0);
 
 

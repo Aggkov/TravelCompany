@@ -28,7 +28,7 @@ public class Passenger extends BaseEntity {
 
     private Authority authority;
 
-    private List<Itinerary> itineraries;
+    private Set<Itinerary> itineraries;
 
     private Set<Order> orders;
 
@@ -42,7 +42,7 @@ public class Passenger extends BaseEntity {
         this.nationality = nationality;
         this.category = category;
         this.authority = authority;
-        this.itineraries = new ArrayList<>();
+        this.itineraries = new LinkedHashSet<>();
         this.orders = new LinkedHashSet<>();
     }
 

@@ -8,9 +8,7 @@ import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -26,7 +24,7 @@ public class Itinerary extends BaseEntity {
 
     private BigDecimal basicPrice;
 
-    private List<Passenger> passengers;
+    private Set<Passenger> passengers;
 
     public Itinerary(Long id, DepartureAirportCode departureAirportCode, DestinationAirportCode destinationAirportCode,
             LocalDateTime departureDate, Airline airline,
@@ -37,7 +35,7 @@ public class Itinerary extends BaseEntity {
         this.departureDate = departureDate;
         this.airline = airline;
         this.basicPrice = basicPrice;
-        passengers = new ArrayList<>();
+        passengers = new LinkedHashSet<>();
     }
     public boolean addPassenger(Passenger passenger) {
         if(!passengers.contains(passenger)) {

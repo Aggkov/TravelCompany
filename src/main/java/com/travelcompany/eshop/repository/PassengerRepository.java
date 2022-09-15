@@ -5,8 +5,10 @@ package com.travelcompany.eshop.repository;
 import com.travelcompany.eshop.model.Passenger;
 
 
-public interface PassengerRepository {
+public interface PassengerRepository extends JpaRepository<Passenger> {
 
-    public Passenger findByEmail(String email);
+    Passenger findByEmail(String email);
+
+//    Passenger save(Passenger passenger);
 
 }
