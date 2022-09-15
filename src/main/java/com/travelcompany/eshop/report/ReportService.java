@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class ReportService {
@@ -22,21 +23,20 @@ public class ReportService {
     List<Order> orders = instance.getOrders();
     Set<Passenger> passengers = instance.getPassengers();
     List<Itinerary> itineraries = instance.getItineraries();
+    private final AtomicInteger counter = new AtomicInteger(0);
+
+
 
     public void listTotalNumberAndTotalCostOfTicketsPerCustomer() {
-        List passengerList =
-                passengers.stream()
-                        .map(p -> {
-                            Integer ticketCount = p.getItineraries().size();
-                            BigDecimal totalPaid = p.getOrders().parallelStream()
-                                    .map(Order::getPaymentAmount)
-                                    .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-                            return new KeyValue(p, new PassengerDetailsResponse(ticketCount, totalPaid));
-                        }).collect(Collectors.toList());
-
-        for (Object obj : passengerList) {
-            System.out.println(obj);
+        for(Passenger passenger: passengers) {
+            int ticketCount = passenger.getItineraries().size();
+            BigDecimal totalCostOfTickets = BigDecimal.ZERO;
+            for(Order order: passenger.getOrders()) {
+                totalCostOfTickets = totalCostOfTickets.add(order.getPaymentAmount());
+            }
+            System.out.println(counter.incrementAndGet() + " -- " + passenger.getFullName() + " has bought a total of " +
+                    ticketCount + " tickets with total cost of " + totalCostOfTickets );
         }
     }
 
@@ -93,4 +93,23 @@ public class ReportService {
         passengersWithNoTickets.forEach(System.out::println);
 
     }
+
+    // ALTERNATIVE
+
+//    public void listTotalNumberAndTotalCostOfTicketsPerCustomer() {
+//        List passengerList =
+//                passengers.stream()
+//                        .map(p -> {
+//                            Integer ticketCount = p.getItineraries().size();
+//                            BigDecimal totalPaid = p.getOrders().parallelStream()
+//                                    .map(Order::getPaymentAmount)
+//                                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+//
+//                            return new KeyValue(p, new PassengerDetailsResponse(ticketCount, totalPaid));
+//                        }).collect(Collectors.toList());
+//
+//        for (Object obj : passengerList) {
+//            System.out.println(obj);
+//        }
+//    }
 }
