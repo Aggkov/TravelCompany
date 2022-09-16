@@ -34,7 +34,7 @@ public class ReportService {
                 totalCostOfTickets = totalCostOfTickets.add(order.getPaymentAmount());
             }
             System.out.println(counter.incrementAndGet() + " -- " + passenger.getFullName() + " has bought a total of " +
-                    ticketCount + " tickets with total cost of " + totalCostOfTickets );
+                    ticketCount + " tickets with total cost of " + totalCostOfTickets + "\n\n");
         }
     }
 
@@ -42,14 +42,14 @@ public class ReportService {
         Map<DestinationAirportCode, List<Itinerary>> itinerariesPerDestination = itineraries.stream()
                 .collect(Collectors.groupingBy(Itinerary::getDestinationAirportCode));
 
-        itinerariesPerDestination.forEach((k, v) -> System.out.println(k + " " + v));
+        itinerariesPerDestination.forEach((k, v) -> System.out.println(k + " " + v + "\n\n"));
     }
 
     public void listTotalOfferedItinerariesPerDeparture() {
         Map<DepartureAirportCode, List<Itinerary>> itinerariesPerDeparture = itineraries.stream()
                 .collect(Collectors.groupingBy(Itinerary::getDepartureAirportCode));
 
-        itinerariesPerDeparture.forEach((k, v) -> System.out.println(k + " " + v));
+        itinerariesPerDeparture.forEach((k, v) -> System.out.println(k + " " + v + "\n\n"));
     }
 
     public void listOfCustomersWithMostTickets() {
@@ -92,22 +92,5 @@ public class ReportService {
 
     }
 
-    // ALTERNATIVE
 
-//    public void listTotalNumberAndTotalCostOfTicketsPerCustomer() {
-//        List passengerList =
-//                passengers.stream()
-//                        .map(p -> {
-//                            Integer ticketCount = p.getItineraries().size();
-//                            BigDecimal totalPaid = p.getOrders().parallelStream()
-//                                    .map(Order::getPaymentAmount)
-//                                    .reduce(BigDecimal.ZERO, BigDecimal::add);
-//
-//                            return new KeyValue(p, new PassengerDetailsResponse(ticketCount, totalPaid));
-//                        }).collect(Collectors.toList());
-//
-//        for (Object obj : passengerList) {
-//            System.out.println(obj);
-//        }
-//    }
 }

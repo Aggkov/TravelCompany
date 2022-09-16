@@ -1,15 +1,22 @@
 
 package com.travelcompany.eshop;
 
-import com.travelcompany.eshop.model.Passenger;
-import com.travelcompany.eshop.repository.PassengerRepository;
-import com.travelcompany.eshop.repository.impl.PassengerRepositoryImpl;
+import com.travelcompany.eshop.boot.Application;
+
 
 public class App {
 
     public static void main(String[] args) {
 
-//        Application.run();
+        Application.run();
+
+    }
+}
+
+
+
+
+
 
 
 
@@ -20,10 +27,10 @@ public class App {
 
 
         // FIND BY EMAIL
-        PassengerRepository passengerRepository = new PassengerRepositoryImpl();
-
-        Passenger foundPassenger = passengerRepository.findByEmail("ada@mail.com");
-        System.out.println(foundPassenger);
+//        PassengerRepository passengerRepository = new PassengerRepositoryImpl();
+//
+//        Passenger foundPassenger = passengerRepository.findByEmail("ada@mail.com");
+//        System.out.println(foundPassenger);
 //
 //        // CREATE
 //        System.out.println(DataBase.getInstance().getPassengers());
@@ -39,5 +46,3 @@ public class App {
 
 
 
-    }
-}

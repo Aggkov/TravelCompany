@@ -36,27 +36,27 @@ public class UserMenu {
     }
 
     public void showUserMenu(Passenger passenger) {
-        System.out.println("hi from user menu");
+        System.out.println("WELCOME TO THE USER MENU\n");
         List<Itinerary> itineraries = itineraryService.getAllItineraries();
-        boolean flag1 = false;
-        boolean flag2 = false;
+        boolean continue1 = false;
+        boolean continue2 = false;
         String paymentMethodInput = "";
-        while (!flag1) {
+        while (!continue1) {
             try {
                 int orderId = InputValidator.validateIntegerInput("Which itinerary would you like? : " + "\n" + InputValidator.getOptionsNames(itineraries),
                         InputValidator.getOptionsNumbers(itineraries));
                 Itinerary foundItinerary = (itineraryService.findById((long) orderId));
 
-                while(!flag2) {
+                while(!continue2) {
                     paymentMethodInput = InputValidator.validateString();
-                    flag2 = true;
+                    continue2 = true;
                 }
 
                 PaymentMethod paymentMethod = PaymentMethod.valueOf(paymentMethodInput.toUpperCase());
 
                 CheckOutMenu.getInstance().showCheckOutMenu(passenger, foundItinerary, paymentMethod);
 
-                flag1 = true;
+                continue1 = true;
 
             } catch (NumberFormatException | ResourceNotFoundException | BadRequestException ex) {
                 System.out.println(ex.getMessage());
