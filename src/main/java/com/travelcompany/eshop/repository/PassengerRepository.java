@@ -9,6 +9,4 @@ public interface PassengerRepository extends JpaRepository<Passenger> {
 
     Passenger findByEmail(String email);
 
-//    Passenger save(Passenger passenger);
-
 }

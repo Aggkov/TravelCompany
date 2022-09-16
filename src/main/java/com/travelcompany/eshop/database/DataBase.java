@@ -32,7 +32,7 @@ public class DataBase {
         Passenger passenger8 = new Passenger(8L, "Enzo Collin", "ecollim@mail.com", "Lyon", Nationality.FRENCH, Category.INDIVIDUAL, Authority.USER);
         Passenger passenger9 = new Passenger(9L, "Frederic Michel", "fmichel@mail.com", "Athens", Nationality.FRENCH, Category.INDIVIDUAL, Authority.USER);
 
-        Passenger passenger10 = new Passenger(10L, "Admin Admin", "admin@mail.com", "Athens", Nationality.GREEK, Category.INDIVIDUAL, Authority.ADMIN);
+        Passenger passenger10 = new Passenger(10L, "Admin Admin", "admin@mail.com", "Athens", Nationality.GREEK, Category.BUSINESS, Authority.ADMIN);
         Collections.addAll(this.passengers, passenger1, passenger2, passenger3, passenger4, passenger5, passenger6, passenger7, passenger8, passenger9,passenger10);
 
         Itinerary itinerary1 = new Itinerary(1L, DepartureAirportCode.ATH, DestinationAirportCode.PAR, LocalDateTime.of(2022,02,22, 13, 35), Airline.SKYLINE, new BigDecimal("300"));

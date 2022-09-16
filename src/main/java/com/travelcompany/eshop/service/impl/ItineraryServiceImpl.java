@@ -6,6 +6,7 @@ import com.travelcompany.eshop.repository.ItineraryRepository;
 import com.travelcompany.eshop.repository.impl.ItineraryRepositoryImpl;
 import com.travelcompany.eshop.service.ItineraryService;
 import java.util.List;
+import java.util.Set;
 
 public class ItineraryServiceImpl implements ItineraryService {
     
@@ -13,11 +14,11 @@ public class ItineraryServiceImpl implements ItineraryService {
     
     public List<Itinerary> getAllItineraries() {
         
-        return itineraryRepository.getAllItineraries();
+        return itineraryRepository.findAll();
     }
 
     public Itinerary findById(Long id) {
-        return itineraryRepository.findById(id);
+        return itineraryRepository.getById(id);
     }
     
 }

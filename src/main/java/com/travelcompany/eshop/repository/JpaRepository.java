@@ -12,7 +12,7 @@ public interface JpaRepository<T> {
 
     T getById(Long id);
 
-    Set<T> findAll();
+    List<T> findAll();
 
 
 }

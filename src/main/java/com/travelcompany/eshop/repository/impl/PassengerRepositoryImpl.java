@@ -6,6 +6,7 @@ package com.travelcompany.eshop.repository.impl;
 
 import com.travelcompany.eshop.database.DataBase;
 import com.travelcompany.eshop.exception.ResourceNotFoundException;
+import com.travelcompany.eshop.model.Itinerary;
 import com.travelcompany.eshop.model.Passenger;
 import com.travelcompany.eshop.repository.AbstractRepository;
 import com.travelcompany.eshop.repository.PassengerRepository;
@@ -17,14 +18,17 @@ import java.util.Set;
 public class PassengerRepositoryImpl extends AbstractRepository<Passenger> implements PassengerRepository {
 
 
-    List<Passenger> passengerList = new ArrayList<>(getEntitySet());
+    @Override
+    protected List<Passenger> getEntityList() {
+        return new ArrayList<>(DataBase.getInstance().getPassengers());
+    }
     @Override
     protected Set<Passenger> getEntitySet() {
         return DataBase.getInstance().getPassengers();
     }
 
     public Passenger findByEmail(String email) {
-        return  passengerList.stream()
+        return  getEntitySet().stream()
                 .filter(p -> p.getEmail().equals(email))
                 .findFirst()
                 .orElseThrow(() -> new ResourceNotFoundException(getEntity() + " with that email was not found"));

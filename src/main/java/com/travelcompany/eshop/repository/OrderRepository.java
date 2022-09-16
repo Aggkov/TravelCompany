@@ -1,14 +1,11 @@
 package com.travelcompany.eshop.repository;
 
 import com.travelcompany.eshop.model.Order;
+import com.travelcompany.eshop.model.Passenger;
+
 import java.util.List;
 
-public interface OrderRepository {
+public interface OrderRepository extends JpaRepository<Order> {
 
-     Order findById(Long id);
-     
-     List<Order> getAll();
-
-     Order addOrder(Order order);
 
 }

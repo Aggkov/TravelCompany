@@ -16,17 +16,17 @@ public class OrderServiceImpl  implements OrderService {
     
     @Override
     public Order findById(Long id) {
-        return orderRepository.findById(id);
+        return orderRepository.getById(id);
     }
     
     public List<Order> getAll() {
         
-        return orderRepository.getAll();
+        return orderRepository.findAll();
     }
 
     public Order addOrder(Order order) {
 
-        return orderRepository.addOrder(order);
+        return orderRepository.create(order);
     }
 
     
