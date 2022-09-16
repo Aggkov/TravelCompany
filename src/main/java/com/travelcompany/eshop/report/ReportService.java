@@ -17,10 +17,10 @@ import java.util.stream.Collectors;
 
 public class ReportService {
 
-    DataBase instance = DataBase.getInstance();
-    Set<Order> orders = instance.getOrders();
-    Set<Passenger> passengers = instance.getPassengers();
-    Set<Itinerary> itineraries = instance.getItineraries();
+    private final DataBase instance = DataBase.getInstance();
+    private final Set<Order> orders = instance.getOrders();
+    private final Set<Passenger> passengers = instance.getPassengers();
+    private final Set<Itinerary> itineraries = instance.getItineraries();
     private final AtomicInteger counter = new AtomicInteger(0);
 
 
